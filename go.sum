@@ -1,0 +1,6 @@
+github.com/evgeny-klyopov/golang-json-rpc v1.0.0 h1:WPN2jy5sMyEJhFPj1dY/AS+UD2m9wcOlxB+AUAWaayY=
+github.com/evgeny-klyopov/golang-json-rpc v1.0.0/go.mod h1:wS0Nn0GdNXMOBhMoXoVuJ29is+2GVF/1HSElx/cbiQY=
+github.com/gorilla/rpc v1.2.0 h1:WvvdC2lNeT1SP32zrIce5l0ECBfbAlmrmSBsuc57wfk=
+github.com/gorilla/rpc v1.2.0/go.mod h1:V4h9r+4sF5HnzqbwIez0fKSpANP0zlYd3qR7p36jkTQ=
+github.com/shopspring/decimal v1.2.0 h1:abSATXmQEYyShuxI4/vyW3tV1MrKAJzCZ/0zLUXYbsQ=
+github.com/shopspring/decimal v1.2.0/go.mod h1:DKyhrW/HYNuLGql+MJL6WCR6knT2jwCFRcu2hWCYk4o=
