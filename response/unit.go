@@ -7,7 +7,7 @@ type Transaction struct {
 	Blockhash         string  `json:"blockhash"`
 	Blockindex        int64   `json:"blockhash"`
 	Blocktime         int64   `json:"blocktime"`
-	Txid              int64   `json:"txid"`
+	Txid              string  `json:"txid"`
 	Time              int64   `json:"time"`
 	Timereceived      int64   `json:"timereceived"`
 	Bip125Replaceable string  `json:"bip125-replaceable"`
