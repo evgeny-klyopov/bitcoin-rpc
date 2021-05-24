@@ -1,6 +1,7 @@
 package bitcoinRpc
 
 import (
+	"github.com/evgeny-klyopov/bitcoin-rpc/mock"
 	"github.com/evgeny-klyopov/bitcoin-rpc/response"
 	jsonRpcClient "github.com/evgeny-klyopov/golang-json-rpc"
 	"net/http"
@@ -8,6 +9,8 @@ import (
 
 type client struct {
 	jsonRpcClient jsonRpcClient.JsonRpcConnector
+	useMock       bool
+	mock          mock.Mocker
 }
 
 type BitcoinRpc interface {
@@ -16,9 +19,11 @@ type BitcoinRpc interface {
 	GetTransaction(params []string) (*response.GetTransaction, error)
 }
 
-func NewClient(jsonRpcClient jsonRpcClient.JsonRpcConnector) BitcoinRpc {
+func NewClient(jsonRpcClient jsonRpcClient.JsonRpcConnector, useMock bool, mockDirectory string) BitcoinRpc {
 	return &client{
 		jsonRpcClient: jsonRpcClient,
+		useMock:       useMock,
+		mock:          mock.NewMock(mockDirectory),
 	}
 }
 
@@ -45,11 +50,18 @@ func (c *client) GetBalance(params []string) (*response.Balance, error) {
 }
 
 func (c *client) request(method string, params interface{}, data interface{}) error {
-	statusCode, err := c.jsonRpcClient.Request(method, params, &data)
+	var statusCode *int
+	var err error
+
+	if c.useMock == true {
+		return c.mock.Request(method, &data)
+	}
+
+	statusCode, err = c.jsonRpcClient.Request(method, params, &data)
 
 	if *(statusCode) != http.StatusOK {
 		return err
 	}
 
-	return nil
+	return err
 }
