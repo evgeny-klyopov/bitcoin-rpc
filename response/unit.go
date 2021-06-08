@@ -5,7 +5,7 @@ type Transaction struct {
 	Fee               Balance `json:"fee"`
 	Confirmations     int     `json:"confirmations"`
 	Blockhash         string  `json:"blockhash"`
-	Blockindex        int64   `json:"blockhash"`
+	Blockindex        int64   `json:"blockindex"`
 	Blocktime         int64   `json:"blocktime"`
 	Txid              string  `json:"txid"`
 	Time              int64   `json:"time"`
